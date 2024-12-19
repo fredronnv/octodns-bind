@@ -316,7 +316,8 @@ class ZoneFileProvider(RfcPopulate, BaseProvider):
                 except AttributeError:
                     values = [record.value]
                 for value in values:
-                    value = value.rdata_text
+                    if not isinstance(value, str):
+                        value = value.rdata_text
                     if record._type in ('SPF', 'TXT'):
                         # TXT values need to be quoted
                         value = value.replace('"', '\\"')
