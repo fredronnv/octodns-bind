@@ -322,7 +322,6 @@ class ZoneFileProvider(RfcPopulate, BaseProvider):
                         # TXT values need to be quoted
                         value = value.replace('"', '\\"')
                         value = record.chunked_value(value)
-                        value = f'"{value}"'
                     name = '@' if record.name == '' else record.name
                     if name == prev_name:
                         name = ''
